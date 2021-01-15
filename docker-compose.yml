@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  portal-vimc-fe-dev:
+    container_name: portal-vimc-fe-dev
+    hostname: portal-vimc-fe-dev
+    build:
+      context: .
+      args:
+        REACT_APP_API_URL: http://192.168.73.208:8080
+        REACT_APP_OAUTH_CLIENT_ID: vimc
+        REACT_APP_OAUTH_CLIENT_SECRET: nExI8Ldol3IXAcZRyZK3e7fjoPbyoz
+        REACT_APP_NOTIFICATION_URL: http://192.168.73.208:3000
+    image: portal-vimc-fe-dev
+    restart: always
+    ports:
+      - '80:80'
+    networks:
+      - vimc-net
+
+networks:
+  vimc-net:
+    external: true

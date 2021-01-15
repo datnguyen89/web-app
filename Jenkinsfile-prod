@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+  stages {
+    stage("Install") {
+      steps {
+        sh "npm install"
+      }
+    }
+    stage("Package") {
+      steps {
+        script {
+          dockerImage = docker.build('nexus.vn-dev.com/portal-vimc-fe-prod', ' \
+              --build-arg REACT_APP_API_URL=http://222.255.0.229:8081 \
+              --build-arg REACT_APP_OAUTH_CLIENT_ID=vimc \
+              --build-arg REACT_APP_OAUTH_CLIENT_SECRET=39Wx3xNLuehQqQ5agnX5ox3g4rSydr \
+              --build-arg REACT_APP_NOTIFICATION_URL=http://222.255.0.229:3000 .')
+          docker.withRegistry('https://nexus.vn-dev.com', 'b7b3029b-e5c2-4a6e-9dba-9724a4703dbb') {
+            dockerImage.push()
+          }
+        }
+        sh "docker image prune -f"
+      }
+    }
+  }
+}
