@@ -56,6 +56,9 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
   }
+  .ant-btn-link {
+    color: ${props => props.theme.solidColor} !important;
+  }
   /** Typography */
   a.ant-typography, .ant-typography a {
     color: ${props => props.theme.solidColor} !important;

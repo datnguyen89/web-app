@@ -10,7 +10,7 @@ const NotFoundPage = props => {
   return (
     <Wrapper>
       <Helmet>
-        <title>404 | VIMC Portal</title>
+        <title>404 | Index</title>
       </Helmet>
       <Result
         status="404"

@@ -1,17 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import styled from 'styled-components'
+import { Layout, Menu } from 'antd'
 
-const DashboardLayoutStyled = props => {
-  const {children} = props
-  return (
-    <div>
+const { Footer, Content, Sider, Header } = Layout
 
-    </div>
-  )
-}
+export const LayoutWrapper = styled(Layout)`
+  height: 100vh;
+`
 
-DashboardLayoutStyled.propTypes = {
+// Content
+export const LayoutContent = styled(Content)`
+  transition: all 0.2s;
+`
 
-}
-
-export default DashboardLayoutStyled
