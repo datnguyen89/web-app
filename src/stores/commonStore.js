@@ -3,17 +3,24 @@ import themeList from '../themeList'
 
 class CommonStore {
   /** Page name management */
-  @observable pageName = []
-  @action setPage = pageName => {
-    this.pageName = pageName
+  @observable currentPath = ''
+  @action setCurrentPath = path => {
+    this.currentPath = path
   }
 
   /** App theme */
-  @observable appTheme = localStorage.getItem('appTheme') ? JSON.parse(localStorage.getItem('appTheme')) : themeList.filter(x => x.name === 'blue')[0]
+  @observable appTheme = localStorage.getItem('appTheme') ? JSON.parse(localStorage.getItem('appTheme')) : themeList.filter(x => x.name === 'green')[0]
 
   @action setTheme = themeName => {
     this.appTheme = themeList.filter(x => x.name === themeName)[0]
     localStorage.setItem('appTheme', JSON.stringify(themeList.filter(x => x.name === themeName)[0]))
+  }
+
+  /** Menu  */
+  @observable isHeaderFixed = localStorage.getItem('isHeaderFixed') ? JSON.parse(localStorage.getItem('isHeaderFixed')) : true
+  @action setIsHeaderFixed = (isFixed) => {
+    this.isHeaderFixed = isFixed
+    localStorage.setItem('isHeaderFixed', JSON.stringify(isFixed))
   }
 
   /** Sidebar */

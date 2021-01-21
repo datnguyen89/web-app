@@ -1,12 +1,12 @@
-import React, { memo } from 'react'
+import React, { memo, useEffect } from 'react'
 import { inject, observer } from 'mobx-react'
 import { GlobalStyle } from './ThemeProviderStyled'
 import axios from 'axios'
 import loadingAnimationStore from '../../stores/loadingAnimationStore'
-import { message } from 'antd'
+import { message, BackTop } from 'antd'
 
 const ThemeProvider = (props) => {
-  const { commonStore, children, loadingAnimationStore } = props
+  const { commonStore, children, loadingAnimationStore, location } = props
   axios.defaults.timeout = 60000
   axios.interceptors.request.use(
     config => {
@@ -40,6 +40,11 @@ const ThemeProvider = (props) => {
       }
     },
   )
+
+  useEffect(() => {
+    commonStore.setCurrentPath(window.location.pathname)
+  }, [window.location.pathname])
+
   return (
     <>
       <GlobalStyle

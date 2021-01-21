@@ -37,4 +37,5 @@ export const ColorButton = styled.div`
   height: 15px;
   border-radius: 50%;
   background-color: ${props => props.backgroundColor};
+  margin-right: 5px;
 `

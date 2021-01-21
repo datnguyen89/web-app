@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import { Layout } from 'antd'
+import { Layout, BackTop } from 'antd'
 import { useMediaQuery } from 'react-responsive'
 
 import {
@@ -11,6 +11,8 @@ import {
 
 import MainSideBar from '../../components/MainSideBar'
 import MainHeader from '../../components/MainHeader'
+import { UpOutlined } from '@ant-design/icons'
+import BackTopButton from '../../components/BackTopButton/BackTopButton'
 
 const { Footer, Content } = Layout
 
@@ -18,7 +20,6 @@ const DashboardLayout = props => {
   const { children, commonStore } = props
   const isSmallMobile = useMediaQuery({ query: '(max-width: 425px)' })
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' })
-
 
   return (
     <LayoutWrapper>
@@ -28,7 +29,7 @@ const DashboardLayout = props => {
       >
         <Layout>
           <MainHeader />
-          <Content>
+          <Content style={{ marginTop: commonStore.isHeaderFixed ? '64px' : '0px' }}>
             {children}
           </Content>
           <Footer>
@@ -36,6 +37,7 @@ const DashboardLayout = props => {
           </Footer>
         </Layout>
       </LayoutContent>
+      <BackTopButton />
     </LayoutWrapper>
   )
 }

@@ -10,11 +10,11 @@ const themeList = [
   },
   {
     name: 'wood',
-    solidColor: '#f5cb94',
-    solidDarkColor: '#6c4504',
-    solidLightColor: 'rgba(214, 174, 123, .2)',
-    gradientColor: 'linear-gradient(to right, #e2b884 0%,#eacda3 100%)',
-    shadowColor: '0 2px 10px rgba(214, 174, 123, .4)',
+    solidColor: '#ff9100 ',
+    solidDarkColor: '#43302e',
+    solidLightColor: 'rgb(245 194 130 / 20%)',
+    gradientColor: 'linear-gradient(108.88deg,#f1cb98 0%,#ff9100 100%)',
+    shadowColor: 'rgb(255 206 142 / 20%)',
     lightShadowColor: '0 2px 4px rgba(214, 174, 123, .2), 0 4px 8px rgba(214, 174, 123, .2)',
   },
   {

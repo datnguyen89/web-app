@@ -5,6 +5,9 @@ export const GlobalStyle = createGlobalStyle`
   html {
     --antd-wave-shadow-color: ${props => props.theme.solidColor} !important;
   }
+  a {
+    color: ${props => props.theme.solidColor} !important;
+  }
   ::selection {
     background: ${props => props.theme.solidColor} !important;
   }
@@ -97,7 +100,6 @@ export const GlobalStyle = createGlobalStyle`
       &:focus, &.ant-input-focused {
         outline: none !important;
         border-color: ${props => props.theme.solidColor} !important;
-        box-shadow: ${props => props.theme.lightShadowColor} !important;
       }
     }
   }
@@ -319,7 +321,8 @@ export const GlobalStyle = createGlobalStyle`
       }
     }
   }
-  .ant-menu-item-selected {
+
+  .ant-menu-item-selected, .ant-menu-submenu-selected {
     color: ${props => props.theme.solidColor} !important;
   }
   .ant-menu-item:hover, 
@@ -339,6 +342,12 @@ export const GlobalStyle = createGlobalStyle`
   .ant-menu-submenu-inline > .ant-menu-submenu-title:hover .ant-menu-submenu-arrow::before {
     background: ${props => props.theme.gradientColor} !important;
     transition: all ease .3s;
+  }
+  .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon, .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+    color: ${props => props.theme.solidColor};
+  }
+  .ant-menu-item:active, .ant-menu-submenu-title:active {
+    background: ${props => props.theme.solidLightColor};
   }
   .ant-menu-item {
     a:hover {

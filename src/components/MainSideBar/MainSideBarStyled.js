@@ -5,12 +5,16 @@ const { Footer, Content, Sider, Header } = Layout
 // Sider
 export const MainSideBarWrapper = styled(Sider)`
   color: #ffffff;
+  overflow: hidden !important;
   background: ${props => props.theme.solidDarkColor};
   .ant-menu {
     background: transparent !important;   
     border: none;
   }
   .ant-menu-item {
+    color: #c5c5c5;
+  }
+  .ant-menu-item-group-title , .ant-menu-submenu-title, .ant-menu-submenu-expand-icon, .ant-menu-submenu-arrow {
     color: #ffffff;
   }
   .ant-layout-sider-trigger {
@@ -27,7 +31,8 @@ export const MainLogo = styled.div`
   display: flex;
   align-items: center;
   padding: 5px;
-  min-height: 60px;
+  min-height: 64px;
+  border-bottom: solid 1px ${props => props.theme.solidLightColor};
   img {
     object-fit: cover;
     object-position: center;
@@ -42,7 +47,4 @@ export const LogoText = styled.span`
   width: ${props => props.width};
   transition: width 0.3s, opacity 0.3s;
   white-space: nowrap;
-`
-export const MainMenu = styled(Menu)`
-
 `

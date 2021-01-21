@@ -1,11 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import { MainSideBarWrapper, LogoText, MainLogo, MainMenu } from './MainSideBarStyled'
-import { ContainerOutlined, DesktopOutlined, MenuFoldOutlined, MenuUnfoldOutlined, PieChartOutlined } from '@ant-design/icons'
+import { MainSideBarWrapper, LogoText, MainLogo } from './MainSideBarStyled'
+import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, MenuFoldOutlined, MenuUnfoldOutlined, PieChartOutlined, SettingOutlined } from '@ant-design/icons'
 import { Col, Menu, Row, Drawer } from 'antd'
 import IMAGES from '../../images'
 import { useMediaQuery } from 'react-responsive'
+
+const { SubMenu } = Menu
 
 const MainSideBar = props => {
   const { commonStore } = props
@@ -14,6 +16,9 @@ const MainSideBar = props => {
 
   const onCollapse = collapsed => {
     commonStore.setIsSidebarCollapsed(collapsed)
+  }
+  const handleClickMenu = (value) => {
+    console.log(value)
   }
 
   return (
@@ -68,7 +73,7 @@ const MainSideBar = props => {
       >
         <Row>
           <Col span={24}>
-            <MainLogo>
+            <MainLogo theme={commonStore.appTheme}>
               <img src={IMAGES.MAIN_LOGO} alt={'site-logo'} />
               <LogoText
                 opactity={commonStore.isSidebarCollapsed ? '0' : '1'}
@@ -80,22 +85,24 @@ const MainSideBar = props => {
           </Col>
         </Row>
         <Row>
-          <MainMenu
-            defaultSelectedKeys={['1']}
-            mode="inline"
-            theme="light"
-          >
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
-              Option 1
-            </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
-              Option 2
-            </Menu.Item>
-            <Menu.Item key="3" icon={<ContainerOutlined />}>
-              Option 3
-            </Menu.Item>
 
-          </MainMenu>
+          <Menu
+            onClick={handleClickMenu}
+            mode="inline"
+            selectedKeys={'3'}
+            // inlineCollapsed={commonStore.isSidebarCollapsed}
+          >
+            <SubMenu key="sub1" icon={<ContainerOutlined />} title="Navigation One" />
+            <Menu.Item icon={<DesktopOutlined />} key="1">Option 9</Menu.Item>
+            <Menu.Item icon={<SettingOutlined />} key="2">Option 10</Menu.Item>
+            <Menu.Item icon={<MailOutlined />} key="3">Option 11</Menu.Item>
+            <Menu.Item icon={<PieChartOutlined />} key="4">Option 12</Menu.Item>
+            <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two" />
+            <Menu.Item icon={<DesktopOutlined />} key="9">Option 9</Menu.Item>
+            <Menu.Item icon={<SettingOutlined />} key="10">Option 10</Menu.Item>
+            <Menu.Item icon={<MailOutlined />} key="11">Option 11</Menu.Item>
+            <Menu.Item icon={<PieChartOutlined />} key="12">Option 12</Menu.Item>
+          </Menu>
         </Row>
         <Row>
           <Col>
