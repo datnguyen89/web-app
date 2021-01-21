@@ -2,10 +2,10 @@ import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet/es/Helmet'
 import { Wrapper } from './NotFoundPageStyled'
 import { Button, Result } from 'antd'
+import { useHistory } from 'react-router-dom'
 
 const NotFoundPage = props => {
-
-  const { history } = props
+  const history = useHistory()
 
   return (
     <Wrapper>

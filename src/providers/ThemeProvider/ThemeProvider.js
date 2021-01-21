@@ -6,7 +6,7 @@ import loadingAnimationStore from '../../stores/loadingAnimationStore'
 import { message, BackTop } from 'antd'
 
 const ThemeProvider = (props) => {
-  const { commonStore, children, loadingAnimationStore, location } = props
+  const { commonStore, children, loadingAnimationStore } = props
   axios.defaults.timeout = 60000
   axios.interceptors.request.use(
     config => {
@@ -40,10 +40,6 @@ const ThemeProvider = (props) => {
       }
     },
   )
-
-  useEffect(() => {
-    commonStore.setCurrentPath(window.location.pathname)
-  }, [window.location.pathname])
 
   return (
     <>

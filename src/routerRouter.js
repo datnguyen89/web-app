@@ -6,17 +6,15 @@ import NotFoundPage from './pages/NotFoundPage'
 
 const routeRouter = {
   login: {
-    path: '/auth/login',
+    path: '/login',
     component: () => <LoginPage />,
   },
   elements: {
-    path: '/components/elements',
-    subMenu: ['components'],
+    path: '/elements',
     component: () => <ElementsPage />,
   },
-  dashboard: {
+  home: {
     path: '/',
-    subMenu: ['dashboard'],
     component: () => <HomePage />,
   },
   notFound: {

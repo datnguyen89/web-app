@@ -1,16 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import { MainSideBarWrapper, LogoText, MainLogo } from './MainSideBarStyled'
+import { MainSideBarWrapper, LogoText, MainLogo, DrawerLogo, DrawerLogoText } from './MainSideBarStyled'
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, MenuFoldOutlined, MenuUnfoldOutlined, PieChartOutlined, SettingOutlined } from '@ant-design/icons'
 import { Col, Menu, Row, Drawer } from 'antd'
 import IMAGES from '../../images'
 import { useMediaQuery } from 'react-responsive'
+import { useHistory } from 'react-router-dom'
+import routeRouter from '../../routerRouter'
 
 const { SubMenu } = Menu
 
 const MainSideBar = props => {
   const { commonStore } = props
+  const history = useHistory()
   const isSmallMobile = useMediaQuery({ query: '(max-width: 425px)' })
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' })
 
@@ -18,6 +21,7 @@ const MainSideBar = props => {
     commonStore.setIsSidebarCollapsed(collapsed)
   }
   const handleClickMenu = (value) => {
+    history.push(value.key)
     console.log(value)
   }
 
@@ -28,15 +32,12 @@ const MainSideBar = props => {
         title={
           <Row>
             <Col span={24}>
-              <MainLogo>
+              <DrawerLogo>
                 <img src={IMAGES.MAIN_LOGO} alt={'site-logo'} />
-                <LogoText
-                  opactity={commonStore.isSidebarCollapsed ? '0' : '1'}
-                  width={commonStore.isSidebarCollapsed ? '0px' : 'auto'}
-                >
+                <DrawerLogoText theme={commonStore.appTheme}>
                   Ant Design
-                </LogoText>
-              </MainLogo>
+                </DrawerLogoText>
+              </DrawerLogo>
             </Col>
           </Row>
         }
@@ -89,16 +90,10 @@ const MainSideBar = props => {
           <Menu
             onClick={handleClickMenu}
             mode="inline"
-            selectedKeys={'3'}
-            // inlineCollapsed={commonStore.isSidebarCollapsed}
+            selectedKeys={[commonStore.currentPath]}
           >
-            <SubMenu key="sub1" icon={<ContainerOutlined />} title="Navigation One" />
-            <Menu.Item icon={<DesktopOutlined />} key="1">Option 9</Menu.Item>
-            <Menu.Item icon={<SettingOutlined />} key="2">Option 10</Menu.Item>
-            <Menu.Item icon={<MailOutlined />} key="3">Option 11</Menu.Item>
-            <Menu.Item icon={<PieChartOutlined />} key="4">Option 12</Menu.Item>
-            <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two" />
-            <Menu.Item icon={<DesktopOutlined />} key="9">Option 9</Menu.Item>
+            <Menu.Item icon={<DesktopOutlined />} key={routeRouter.home.path}>Home Page</Menu.Item>
+            <Menu.Item icon={<SettingOutlined />} key={routeRouter.elements.path}>Elements</Menu.Item>
             <Menu.Item icon={<SettingOutlined />} key="10">Option 10</Menu.Item>
             <Menu.Item icon={<MailOutlined />} key="11">Option 11</Menu.Item>
             <Menu.Item icon={<PieChartOutlined />} key="12">Option 12</Menu.Item>

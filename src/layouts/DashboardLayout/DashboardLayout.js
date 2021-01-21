@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import { Layout, BackTop } from 'antd'
 import { useMediaQuery } from 'react-responsive'
+import { useLocation } from 'react-router-dom'
 
 import {
   LayoutWrapper,
@@ -18,8 +19,14 @@ const { Footer, Content } = Layout
 
 const DashboardLayout = props => {
   const { children, commonStore } = props
+  const location = useLocation()
+
   const isSmallMobile = useMediaQuery({ query: '(max-width: 425px)' })
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' })
+
+  useEffect(() => {
+    commonStore.setCurrentPath(location.pathname)
+  }, [location.pathname])
 
   return (
     <LayoutWrapper>

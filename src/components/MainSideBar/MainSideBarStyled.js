@@ -39,12 +39,31 @@ export const MainLogo = styled.div`
     max-height: 50px;
   }
 `
+export const DrawerLogo = styled.div`
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  img {
+    object-fit: cover;
+    object-position: center;
+    max-height: 40px;
+  }
+`
 export const LogoText = styled.span`
   font-size: 25px;
   font-weight: 600;
   margin-left: 5px;
-  opacity: ${props => props.opactity};
+  opacity: ${props => props.opacity};
   width: ${props => props.width};
   transition: width 0.3s, opacity 0.3s;
   white-space: nowrap;
+`
+export const DrawerLogoText = styled.span`
+  font-size: 25px;
+  font-weight: 600;
+  margin-left: 5px;
+  transition: width 0.3s, opacity 0.3s;
+  white-space: nowrap;
+  color: ${props => props.theme.solidColor};
 `

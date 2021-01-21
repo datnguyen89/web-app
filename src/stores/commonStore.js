@@ -24,9 +24,10 @@ class CommonStore {
   }
 
   /** Sidebar */
-  @observable isSidebarCollapsed = false
+  @observable isSidebarCollapsed = localStorage.getItem('isSidebarCollapsed') ? JSON.parse(localStorage.getItem('isSidebarCollapsed')) : false
   @action setIsSidebarCollapsed = state => {
     this.isSidebarCollapsed = state
+    localStorage.setItem('isSidebarCollapsed', JSON.stringify(state))
   }
   /** Drawer */
   @observable isShowDrawer = false

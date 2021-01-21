@@ -16,10 +16,8 @@ import 'mobx-react-lite/batchingForReactDom'
 import loadingAnimationStore from './stores/loadingAnimationStore'
 import commonStore from './stores/commonStore'
 // Pages
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
 import NotFoundPage from './pages/NotFoundPage'
-import ElementsPage from './pages/ElementsPage'
+import routeRouter from './routerRouter'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
@@ -28,8 +26,8 @@ const ProtectedRoute = ({ component: Component, ...rest }) => (
       : <Redirect to={{
         pathname: '/login',
         state: { from: props.location },
-      }}/>
-  )}/>
+      }} />
+  )} />
 )
 
 const history = createBrowserHistory()
@@ -52,16 +50,16 @@ const App = () => {
         <ConfigProvider locale={viVN}>
           <Router history={history}>
             <Switch>
-              <Route exact path={'/login'} component={LoginPage}/>
-              <Route exact path={'/elements'} component={ElementsPage}/>
+              <Route exact path={routeRouter.login.path} component={routeRouter.login.component} />
+              <Route exact path={routeRouter.elements.path} component={routeRouter.elements.component} />
 
-              <ProtectedRoute exact path={'/'} component={HomePage}/>
+              <Route exact path={routeRouter.home.path} component={routeRouter.home.component} />
 
-              <Route component={NotFoundPage}/>
+              <Route component={routeRouter.notFound.component} />
             </Switch>
           </Router>
         </ConfigProvider>
-        <LoadingSpinner/>
+        <LoadingSpinner />
       </ThemeProvider>
     </Provider>
   )
