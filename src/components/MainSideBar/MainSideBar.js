@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import { MainSideBarWrapper, LogoText, MainLogo, DrawerLogo, DrawerLogoText } from './MainSideBarStyled'
@@ -18,12 +18,18 @@ const MainSideBar = props => {
   const isMobileOrTablet = useMediaQuery({ query: '(max-width: 768px)' })
 
   const onCollapse = collapsed => {
+    console.log(collapsed)
     commonStore.setIsSidebarCollapsed(collapsed)
   }
   const handleClickMenu = (value) => {
     history.push(value.key)
     console.log(value)
   }
+  //
+  // useEffect(() => {
+  //   console.log(commonStore.isSidebarCollapsed)
+  //   console.log(JSON.parse(localStorage.getItem('isSidebarCollapsed')))
+  // }, [commonStore.isSidebarCollapsed])
 
   return (
     isSmallMobile
@@ -58,18 +64,18 @@ const MainSideBar = props => {
         trigger={commonStore.isSidebarCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         triggerpadding={commonStore.isSidebarCollapsed ? '0' : '24px'}
         triggeralign={commonStore.isSidebarCollapsed ? 'center' : 'left'}
-        collapsed={isMobileOrTablet ? true : commonStore.isSidebarCollapsed}
+        collapsed={commonStore.isSidebarCollapsed}
         width={300}
-        onBreakpoint={broken => {
-          onCollapse(broken)
-        }}
-        onCollapse={onCollapse}
+        // onBreakpoint={broken => {
+        //   onCollapse(broken)
+        // }}
+        onCollapse={() => onCollapse(!commonStore.isSidebarCollapsed)}
         theme={commonStore.appTheme}
         style={{
           overflow: 'auto',
           height: '100vh',
           position: 'fixed',
-          left: 0,
+          left: '0',
         }}
       >
         <Row>

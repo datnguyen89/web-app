@@ -13,6 +13,7 @@ export const MainSideBarWrapper = styled(Sider)`
   }
   .ant-menu-item {
     color: #c5c5c5;
+    margin: 0 !important;
   }
   .ant-menu-item-group-title , .ant-menu-submenu-title, .ant-menu-submenu-expand-icon, .ant-menu-submenu-arrow {
     color: #ffffff;
