@@ -30,6 +30,7 @@ export const MainLogo = styled.div`
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: ${props => props.justifyContent};
   padding: 5px;
   min-height: 64px;
   border-bottom: solid 1px ${props => props.theme.solidLightColor};

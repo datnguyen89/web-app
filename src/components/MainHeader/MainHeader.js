@@ -15,8 +15,9 @@ const MainHeader = props => {
   const fixedStyle = {
     position: 'fixed',
     zIndex: '1',
-    width: `calc(100% - ${isSmallMobile ? '0px' : commonStore.isSidebarCollapsed ? '50px' : '300px'})`,
+    width: `calc(100% - ${isSmallMobile ? '0px' : commonStore.isSidebarCollapsed ? '70px' : '300px'})`,
     transition: 'width 0.2s ease 0s',
+    right: 0,
   }
 
   const menu = (

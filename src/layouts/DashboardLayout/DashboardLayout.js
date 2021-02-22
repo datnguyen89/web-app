@@ -32,7 +32,7 @@ const DashboardLayout = props => {
     <LayoutWrapper>
       <MainSideBar />
       <LayoutContent
-        style={{ marginLeft: isSmallMobile ? 0 : isMobileOrTablet ? 50 : commonStore.isSidebarCollapsed ? 50 : 300 }}
+        style={{ marginLeft: isSmallMobile ? 0 : isMobileOrTablet ? 70 : commonStore.isSidebarCollapsed ? 70 : 300 }}
       >
         <Layout>
           <MainHeader />

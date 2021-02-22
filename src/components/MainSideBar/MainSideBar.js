@@ -53,7 +53,7 @@ const MainSideBar = props => {
       :
       <MainSideBarWrapper
         breakpoint="lg"
-        collapsedWidth={50}
+        collapsedWidth={70}
         collapsible={!isMobileOrTablet}
         trigger={commonStore.isSidebarCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         triggerpadding={commonStore.isSidebarCollapsed ? '0' : '24px'}
@@ -74,10 +74,13 @@ const MainSideBar = props => {
       >
         <Row>
           <Col span={24}>
-            <MainLogo theme={commonStore.appTheme}>
+            <MainLogo
+              theme={commonStore.appTheme}
+              justifyContent={commonStore.isSidebarCollapsed ? 'center' : 'flex-start'}
+            >
               <img src={IMAGES.MAIN_LOGO} alt={'site-logo'} />
               <LogoText
-                opactity={commonStore.isSidebarCollapsed ? '0' : '1'}
+                opacity={commonStore.isSidebarCollapsed ? '0' : '1'}
                 width={commonStore.isSidebarCollapsed ? '0px' : 'auto'}
               >
                 Ant Design
@@ -86,7 +89,6 @@ const MainSideBar = props => {
           </Col>
         </Row>
         <Row>
-
           <Menu
             onClick={handleClickMenu}
             mode="inline"
