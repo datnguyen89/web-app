@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import LoadingSpinner from './components/LoadingSpinner'
 import { ConfigProvider } from 'antd'
 import viVN from 'antd/es/locale/vi_VN'
@@ -12,7 +12,6 @@ import { Redirect, Route, Router, Switch } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 // MobX
 import { Provider } from 'mobx-react'
-import 'mobx-react-lite/batchingForReactDom'
 import loadingAnimationStore from './stores/loadingAnimationStore'
 import commonStore from './stores/commonStore'
 // Pages
@@ -52,8 +51,8 @@ const App = () => {
             <Switch>
               <Route exact path={routeRouter.login.path} component={routeRouter.login.component} />
               <Route exact path={routeRouter.elements.path} component={routeRouter.elements.component} />
-
               <Route exact path={routeRouter.home.path} component={routeRouter.home.component} />
+              <Route exact path={routeRouter.lodashPage.path} component={routeRouter.lodashPage.component} />
 
               <Route component={routeRouter.notFound.component} />
             </Switch>

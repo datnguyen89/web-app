@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
-import { Layout, BackTop } from 'antd'
+import { Layout, BackTop, Divider } from 'antd'
 import { useMediaQuery } from 'react-responsive'
 import { useLocation } from 'react-router-dom'
+import moment from 'moment'
 
 import {
   LayoutWrapper,
@@ -39,8 +40,9 @@ const DashboardLayout = props => {
           <Content style={{ marginTop: commonStore.isHeaderFixed ? '64px' : '0px' }}>
             {children}
           </Content>
-          <Footer>
-            Footer incoming
+          <Footer style={{ textAlign: 'center' }}>
+            <Divider />
+            WEB APP ©{moment().year()} DATNT
           </Footer>
         </Layout>
       </LayoutContent>

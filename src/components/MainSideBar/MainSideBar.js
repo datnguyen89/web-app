@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 import { MainSideBarWrapper, LogoText, MainLogo, DrawerLogo, DrawerLogoText } from './MainSideBarStyled'
@@ -25,11 +25,6 @@ const MainSideBar = props => {
     history.push(value.key)
     console.log(value)
   }
-  //
-  // useEffect(() => {
-  //   console.log(commonStore.isSidebarCollapsed)
-  //   console.log(JSON.parse(localStorage.getItem('isSidebarCollapsed')))
-  // }, [commonStore.isSidebarCollapsed])
 
   return (
     isSmallMobile
@@ -102,7 +97,7 @@ const MainSideBar = props => {
           >
             <Menu.Item icon={<DesktopOutlined />} key={routeRouter.home.path}>Home Page</Menu.Item>
             <Menu.Item icon={<SettingOutlined />} key={routeRouter.elements.path}>Elements</Menu.Item>
-            <Menu.Item icon={<SettingOutlined />} key="10">Option 10</Menu.Item>
+            <Menu.Item icon={<SettingOutlined />} key={routeRouter.lodashPage.path}>Lodash</Menu.Item>
             <Menu.Item icon={<MailOutlined />} key="11">Option 11</Menu.Item>
             <Menu.Item icon={<PieChartOutlined />} key="12">Option 12</Menu.Item>
           </Menu>

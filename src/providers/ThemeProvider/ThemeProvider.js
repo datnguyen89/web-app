@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react'
+import React, { memo } from 'react'
 import { inject, observer } from 'mobx-react'
 import { GlobalStyle } from './ThemeProviderStyled'
 import axios from 'axios'
