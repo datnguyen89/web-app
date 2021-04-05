@@ -1,20 +1,12 @@
 import axios from 'axios'
 import { apiUrl } from '../config'
 import authenticationStore from '../stores/authenticationStore'
+import { Api } from '../api'
 
 export const AccountRequest = {
   getAccountsByUserCode: userCode =>
-    axios({
-      method: 'get',
-      url: `${apiUrl}/api/v1/accounts`,
-      headers: {
-        'Authorization': `Bearer ${JSON.parse(authenticationStore.appToken).access_token}`,
-        'Content-Type': 'application/json',
-      },
-      params: {
-        user_code: userCode,
-      },
-    }),
+    Api.get(`${apiUrl}/api/v1/accounts`, { user_code: userCode }),
+
   updateAccountById: (accountId, accountInfo) =>
     axios({
       method: 'put',

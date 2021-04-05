@@ -257,6 +257,7 @@ export const GlobalStyle = createGlobalStyle`
       .ant-pagination-item-link {
         &:not([disabled]) {
           color: ${props => props.theme.solidColor} !important;
+          border-color: ${props => props.theme.solidColor} !important;
         }
       }
     }
@@ -311,6 +312,9 @@ export const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.solidColor} !important;
   }
   .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-content > .ant-steps-item-title::after {
+    background-color: ${props => props.theme.solidColor} !important;
+  }
+  .ant-steps-item-finish > .ant-steps-item-container > .ant-steps-item-tail::after {
     background-color: ${props => props.theme.solidColor} !important;
   }
   /** Menu */

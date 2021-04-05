@@ -15,7 +15,6 @@ import { Provider } from 'mobx-react'
 import loadingAnimationStore from './stores/loadingAnimationStore'
 import commonStore from './stores/commonStore'
 // Pages
-import NotFoundPage from './pages/NotFoundPage'
 import routeRouter from './routerRouter'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (

@@ -35,9 +35,9 @@ const DashboardLayout = props => {
       <LayoutContent
         style={{ marginLeft: isSmallMobile ? 0 : isMobileOrTablet ? 70 : commonStore.isSidebarCollapsed ? 70 : 300 }}
       >
-        <Layout>
+        <Layout style={{ minHeight: '100vh' }}>
           <MainHeader />
-          <Content style={{ marginTop: commonStore.isHeaderFixed ? '64px' : '0px' }}>
+          <Content style={{ marginTop: commonStore.isHeaderFixed ? '64px' : '0px', flexGrow: 1 }}>
             {children}
           </Content>
           <Footer style={{ textAlign: 'center' }}>
