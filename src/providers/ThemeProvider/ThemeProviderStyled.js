@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
   a {
     color: ${props => props.theme.solidColor} !important;
   }
+  a:hover {
+    color: ${props => props.theme.solidLightColor} !important;
+  }
   ::selection {
     background: ${props => props.theme.solidColor} !important;
   }
@@ -73,6 +76,9 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   /** Input */
+  .ant-input-number:hover {
+    border-color: ${props => props.theme.solidColor};
+  }
   .ant-input-affix-wrapper {
     &:hover {
       border-color: ${props => props.theme.solidColor} !important;
