@@ -9,6 +9,6 @@ export const LayoutWrapper = styled(Layout)`
 
 // Content
 export const LayoutContent = styled(Content)`
-  transition: all 0.2s;
+  transition: all 0s;
 `
 

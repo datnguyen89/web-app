@@ -22,7 +22,6 @@ const MainSideBar = props => {
   }
   const handleClickMenu = (value) => {
     history.push(value.key)
-    console.log(value)
   }
 
   return (
@@ -54,7 +53,7 @@ const MainSideBar = props => {
       <MainSideBarWrapper
         breakpoint="lg"
         collapsedWidth={70}
-        collapsible={!isMobileOrTablet}
+        collapsible={false}
         trigger={commonStore.isSidebarCollapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         triggerpadding={commonStore.isSidebarCollapsed ? '0' : '24px'}
         triggeralign={commonStore.isSidebarCollapsed ? 'center' : 'left'}

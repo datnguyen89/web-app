@@ -9,13 +9,17 @@ const HomePage = props => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      Home
+      {
+        process.env.NODE_ENV
+      }
+      <br />
+      {
+        process.env.REACT_APP_API_URL
+      }
     </DashboardLayout>
   )
 }
 
-HomePage.propTypes = {
-
-}
+HomePage.propTypes = {}
 
 export default HomePage
