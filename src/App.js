@@ -15,7 +15,11 @@ import { Provider } from 'mobx-react'
 import loadingAnimationStore from './stores/loadingAnimationStore'
 import commonStore from './stores/commonStore'
 // Pages
-import routeRouter from './routerRouter'
+import LoginPage from './pages/LoginPage'
+import HomePage from './pages/HomePage'
+import ElementsPage from './pages/ElementsPage'
+import LodashPage from './pages/LodashPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
@@ -48,12 +52,11 @@ const App = () => {
         <ConfigProvider locale={viVN}>
           <Router history={history}>
             <Switch>
-              <Route exact path={routeRouter.login.path} component={routeRouter.login.component} />
-              <Route exact path={routeRouter.elements.path} component={routeRouter.elements.component} />
-              <Route exact path={routeRouter.home.path} component={routeRouter.home.component} />
-              <Route exact path={routeRouter.lodashPage.path} component={routeRouter.lodashPage.component} />
-
-              <Route component={routeRouter.notFound.component} />
+              <Route exact path={'/'} component={HomePage} />
+              <Route exact path={'/login'} component={LoginPage} />
+              <Route exact path={'/elements'} component={ElementsPage} />
+              <Route exact path={'/lodashs'} component={LodashPage} />
+              <Route component={NotFoundPage} />
             </Switch>
           </Router>
         </ConfigProvider>

@@ -7,7 +7,6 @@ import { Col, Menu, Row, Drawer } from 'antd'
 import IMAGES from '../../images'
 import { useMediaQuery } from 'react-responsive'
 import { useHistory } from 'react-router-dom'
-import routeRouter from '../../routerRouter'
 
 const { SubMenu } = Menu
 
@@ -95,9 +94,9 @@ const MainSideBar = props => {
             mode="inline"
             selectedKeys={[commonStore.currentPath]}
           >
-            <Menu.Item icon={<DesktopOutlined />} key={routeRouter.home.path}>Home Page</Menu.Item>
-            <Menu.Item icon={<SettingOutlined />} key={routeRouter.elements.path}>Elements</Menu.Item>
-            <Menu.Item icon={<SettingOutlined />} key={routeRouter.lodashPage.path}>Lodash</Menu.Item>
+            <Menu.Item icon={<DesktopOutlined />} key={'/'}>Home Page</Menu.Item>
+            <Menu.Item icon={<SettingOutlined />} key={'/elements'}>Elements</Menu.Item>
+            <Menu.Item icon={<SettingOutlined />} key={'/lodashs'}>Lodash</Menu.Item>
             <Menu.Item icon={<MailOutlined />} key="11">Option 11</Menu.Item>
             <Menu.Item icon={<PieChartOutlined />} key="12">Option 12</Menu.Item>
           </Menu>
