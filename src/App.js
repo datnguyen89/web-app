@@ -23,7 +23,7 @@ import NotFoundPage from './pages/NotFoundPage'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (
   <Route {...rest} render={props => (
-    localStorage.getItem('jwt') || sessionStorage.getItem('jwt')
+    localStorage.getItem('jwt')
       ? <Component {...props} />
       : <Redirect to={{
         pathname: '/login',
@@ -54,7 +54,7 @@ const App = () => {
             <Switch>
               <Route exact path={'/'} component={HomePage} />
               <Route exact path={'/login'} component={LoginPage} />
-              <Route exact path={'/elements'} component={ElementsPage} />
+              <ProtectedRoute exact path={'/elements'} component={ElementsPage} />
               <Route exact path={'/lodashs'} component={LodashPage} />
               <Route component={NotFoundPage} />
             </Switch>
